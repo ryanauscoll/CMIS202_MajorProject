@@ -1,3 +1,11 @@
+// **********************************************************************************
+// Title: Major Project Part #1
+// Author: Ryan Collingham
+// Course Section: CMIS201-ONL1 (Seidel) Spring 2024
+// File: WordFrequencyAnalyzer
+// Description: Counts the number of times words appear in a text file.
+// **********************************************************************************
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
