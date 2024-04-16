@@ -17,3 +17,6 @@ The software works by reading text files provided by the user, parsing the text 
 The software is open source and free to use, which makes it more customizable and accessable to students. The software uses algorithms to accurately count word frequencies, reducing the risk of human error.
 
 
+## Current UML Design
+
+![UML](UML.png)
