@@ -1,0 +1,51 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "WordFrequencyAnalyzer2",
+            "request": "launch",
+            "mainClass": "WordFrequencyAnalyzer2",
+            "projectName": "MajorProject_3f5702b6",
+            "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+            
+        },
+        {
+            "type": "java",
+            "name": "WordFrequencyAnalyzer",
+            "request": "launch",
+            "mainClass": "WordFrequencyAnalyzer",
+            "projectName": "MajorProject_3f5702b6",
+            "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "InventoryManagementSystem",
+            "request": "launch",
+            "mainClass": "InventoryManagementSystem",
+            "projectName": "MajorProject_3f5702b6",
+            "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "PlaylistManager",
+            "request": "launch",
+            "mainClass": "PlaylistManager",
+            "projectName": "MajorProject_3f5702b6",
+            "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+        }
+    ]
+}

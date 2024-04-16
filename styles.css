@@ -1,0 +1,35 @@
+.root {
+    -fx-background-color: #17202A; /* Dark blue-gray background */
+}
+
+.button {
+    -fx-background-color: #3498DB; /* Light blue button */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Larger font size */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-background-radius: 10px; /* Rounded corners */
+}
+
+.button:hover {
+    -fx-background-color: #2980B9; /* Darker shade of blue on hover */
+}
+
+.text-area {
+    -fx-background-color: #f1ecec; /* Light gray background */
+    -fx-text-fill: #2C3E50; /* Dark blue-gray text */
+    -fx-font-size: 14px; /* Larger font size */
+}
+
+.list-view {
+    -fx-background-color: #ECF0F1; /* Light gray background */
+    -fx-text-fill: #2C3E50; /* Dark blue-gray text */
+    -fx-font-size: 14px; /* Larger font size */
+}
+
+.list-cell {
+    -fx-background-color: transparent; /* Transparent background */
+}
+
+.list-cell:hover {
+    -fx-background-color: #D5DBDB; /* Light gray background on hover */
+}
