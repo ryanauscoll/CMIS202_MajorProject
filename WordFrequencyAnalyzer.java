@@ -6,6 +6,10 @@
 // Description: Counts the number of times words appear in a text file.
 // **********************************************************************************
 
+/*
+ * To use this GUI, type/load in text and then click "analyze"
+ */
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
