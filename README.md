@@ -1,5 +1,6 @@
 # CMIS202 Word Frequency Analyzer
 
+A simple word frequency counter using TimSort.
 
 • **Who are the users of the software?**
 The users of the software could be students, educators, researchers, or anyone who deals with large amounts of text and needs to analyze word frequency for various purposes.
