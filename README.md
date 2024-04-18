@@ -16,7 +16,7 @@ The software works by reading text files provided by the user, parsing the text 
 • **Why would anyone want to use the software over existing processes?**
 The software is open source and free to use, which makes it more customizable and accessable to students. The software uses algorithms to accurately count word frequencies, reducing the risk of human error.
 
-I intend to add more future features such as total word count and pdf processing.
+I intend to add more future features such as total word count and pdf processing (and also make the GUI less ugly lol).
 
 ## Current UML Design
 
