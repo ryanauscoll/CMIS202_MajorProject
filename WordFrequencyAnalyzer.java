@@ -97,20 +97,49 @@ public class WordFrequencyAnalyzer extends Application {
          * smaller sublists, sorts each sublist independently, and then merges the sorted sublists to produce the final sorted list.
          */
 
-    private void analyzeText() {
-        String text = textArea.getText().toLowerCase();
-        StringTokenizer tokenizer = new StringTokenizer(text, " \n\t\r\f,.:;?!\"'()-");
-        Map<String, Integer> wordFrequencyMap = new HashMap<>();
-        while (tokenizer.hasMoreTokens()) {
-            String word = tokenizer.nextToken();
-            wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0) + 1);
+        private void analyzeText() {
+            String text = textArea.getText().toLowerCase();
+            StringTokenizer tokenizer = new StringTokenizer(text, " \n\t\r\f,.:;?!\"'()-");
+    
+            // ArrayList to store word frequencies
+            List<String> words = new ArrayList<>();
+    
+            // LinkedList to store word frequency map entries
+            LinkedList<Map.Entry<String, Integer>> wordFrequencyList = new LinkedList<>();
+    
+            // HashSet to keep track of unique words
+            Set<String> uniqueWords = new HashSet<>();
+    
+            // Queue to store words in the order they appear
+            Queue<String> wordQueue = new LinkedList<>();
+    
+            Map<String, Integer> wordFrequencyMap = new HashMap<>();
+    
+            while (tokenizer.hasMoreTokens()) {
+                String word = tokenizer.nextToken();
+                wordQueue.offer(word);
+                uniqueWords.add(word);
+                wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0) + 1);
+            }
+    
+            // Sort words alphabetically
+            words.addAll(uniqueWords);
+            Collections.sort(words);
+    
+            // Sort word frequencies based on frequency in descending order
+            wordFrequencyList.addAll(wordFrequencyMap.entrySet());
+            wordFrequencyList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+    
+            // Clear wordList
+            wordList.clear();
+    
+            // Add sorted word frequencies to wordList
+            for (Map.Entry<String, Integer> entry : wordFrequencyList) {
+                wordList.add(entry.getKey() + " : " + entry.getValue());
+            }
+    
+            // Set the items in the ListView
+            wordListView.setItems(wordList);
         }
-        List<Map.Entry<String, Integer>> wordFrequencyList = new ArrayList<>(wordFrequencyMap.entrySet());
-        wordFrequencyList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-        wordList.clear();
-        for (Map.Entry<String, Integer> entry : wordFrequencyList) {
-            wordList.add(entry.getKey() + " : " + entry.getValue());
-        }
-        wordListView.setItems(wordList);
     }
-}
+    
