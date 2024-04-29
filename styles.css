@@ -29,6 +29,9 @@
 .list-cell {
     -fx-background-color: transparent; /* Transparent background */
 }
+.word-count-label {
+    -fx-text-fill: white;
+}
 
 .list-cell:hover {
     -fx-background-color: #D5DBDB; /* Light gray background on hover */

@@ -28,6 +28,9 @@ public class WordFrequencyAnalyzer extends Application {
     private TextArea textArea;
     private ListView<String> wordListView;
     private ObservableList<String> wordList;
+    private Label wordCountLabel;
+    private long startTime;
+    private boolean isTimerRunning;
 
     public static void main(String[] args) {
         launch(args);
@@ -43,15 +46,21 @@ public class WordFrequencyAnalyzer extends Application {
         textArea = new TextArea();
         Button loadFileButton = new Button("Load Text File");
         Button analyzeButton = new Button("Analyze");
+        Button startTimerButton = new Button("Start Timer");
+        Button stopTimerButton = new Button("Stop Timer");
         wordListView = new ListView<>();
         wordList = FXCollections.observableArrayList();
+        wordCountLabel = new Label("Word Count: 0");
+        wordCountLabel.getStyleClass().add("word-count-label"); // Apply CSS class
+        isTimerRunning = false;
 
         // Set event handlers
         loadFileButton.setOnAction(event -> loadTextFile(primaryStage));
         analyzeButton.setOnAction(event -> analyzeText());
-
+        startTimerButton.setOnAction(event -> startTimer());
+        stopTimerButton.setOnAction(event -> stopTimer());
         // Add components to VBox
-        vbox.getChildren().addAll(loadFileButton, analyzeButton, textArea);
+        vbox.getChildren().addAll(loadFileButton, analyzeButton, textArea, wordCountLabel, startTimerButton, stopTimerButton);
 
         // Add components to BorderPane
         root.setTop(vbox);
@@ -121,7 +130,12 @@ public class WordFrequencyAnalyzer extends Application {
                 uniqueWords.add(word);
                 wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0) + 1);
             }
-    
+            // Calculate word count
+            int wordCount = wordQueue.size();
+
+            // Update word count label
+            wordCountLabel.setText("Word Count: " + wordCount);
+
             // Sort words alphabetically
             words.addAll(uniqueWords);
             Collections.sort(words);
@@ -140,6 +154,40 @@ public class WordFrequencyAnalyzer extends Application {
     
             // Set the items in the ListView
             wordListView.setItems(wordList);
+        }
+
+        private void startTimer() {
+            if (!isTimerRunning) {
+                startTime = System.currentTimeMillis();
+                isTimerRunning = true;
+                wordCountLabel.setText("Word Count: 0 (Timer started)");
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Timer is already running.");
+            }
+        }
+    
+        // Calculates WPM by dividing word count by time (in seconds)
+        private void stopTimer() {
+            if (isTimerRunning) {
+                isTimerRunning = false;
+                long endTime = System.currentTimeMillis();
+                long elapsedTimeInMillis = endTime - startTime;
+                double elapsedTimeInSeconds = elapsedTimeInMillis / 1000.0;
+                int wordCount = textArea.getText().split("\\s+").length;
+                int wordsPerMinute = (int) (wordCount / (elapsedTimeInSeconds / 60));
+                showAlert(Alert.AlertType.INFORMATION, "Words Per Minute (WPM): " + wordsPerMinute);
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Timer is not running.");
+            }
+        }
+    
+    
+        private void showAlert(Alert.AlertType alertType, String content) {
+            Alert alert = new Alert(alertType);
+            alert.setTitle("Word Frequency Analyzer");
+            alert.setHeaderText(null);
+            alert.setContentText(content);
+            alert.showAndWait();
         }
     }
     

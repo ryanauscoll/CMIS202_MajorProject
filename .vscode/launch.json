@@ -6,13 +6,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OG",
+            "request": "launch",
+            "mainClass": "OG",
+            "projectName": "MajorProject_3f5702b6",
+            "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+        },
+        {
+            "type": "java",
             "name": "WordFrequencyAnalyzer2",
             "request": "launch",
             "mainClass": "WordFrequencyAnalyzer2",
             "projectName": "MajorProject_3f5702b6",
             "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
             "args": ""
-            
         },
         {
             "type": "java",
