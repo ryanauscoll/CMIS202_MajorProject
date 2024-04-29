@@ -1,5 +1,6 @@
 # CMIS202 Word Frequency Analyzer
 
+A simple word frequency counter using TimSort.
 
 • **Who are the users of the software?**
 The users of the software could be students, educators, researchers, or anyone who deals with large amounts of text and needs to analyze word frequency for various purposes.
@@ -16,6 +17,7 @@ The software works by reading text files provided by the user, parsing the text 
 • **Why would anyone want to use the software over existing processes?**
 The software is open source and free to use, which makes it more customizable and accessable to students. The software uses algorithms to accurately count word frequencies, reducing the risk of human error.
 
+I intend to add more future features such as total word count and pdf processing (and also make the GUI less ugly lol).
 
 ## Current UML Design
 
