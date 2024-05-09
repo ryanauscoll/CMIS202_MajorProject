@@ -4,7 +4,31 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-       
+        {
+            "type": "java",
+            "name": "LargerThanN",
+            "request": "launch",
+            "mainClass": "LargerThanN",
+            "projectName": "MajorProject_3f5702b6"
+        },
+        {
+            "type": "java",
+            "name": "WordFrequencyAnalyzer2",
+            "request": "launch",
+            "mainClass": "WordFrequencyAnalyzer2",
+            "projectName": "MajorProject_3f5702b6",
+            "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "WordFreq2",
+            "request": "launch",
+            "mainClass": "WordFreq2",
+            "projectName": "MajorProject_3f5702b6",
+            "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "args": ""
+        },
         {
             "type": "java",
             "name": "WordFrequencyAnalyzer",
@@ -14,7 +38,6 @@
             "vmArgs": "--module-path /Users/ryancollingham/Downloads/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
             "args": ""
         },
-        
         {
             "type": "java",
             "name": "Current File",

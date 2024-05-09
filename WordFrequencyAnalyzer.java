@@ -23,7 +23,9 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.*;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 public class WordFrequencyAnalyzer extends Application {
     private TextArea textArea;
     private ListView<String> wordListView;
@@ -108,6 +110,10 @@ public class WordFrequencyAnalyzer extends Application {
 
         private void analyzeText() {
             String text = textArea.getText().toLowerCase();
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+                    Future<Map<String, Integer>> future = executorService.submit(() -> {
+
             StringTokenizer tokenizer = new StringTokenizer(text, " \n\t\r\f,.:;?!\"'()-");
     
             // ArrayList to store word frequencies
@@ -130,12 +136,9 @@ public class WordFrequencyAnalyzer extends Application {
                 uniqueWords.add(word);
                 wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0) + 1);
             }
-            // Calculate word count
-            int wordCount = wordQueue.size();
+           
 
-            // Update word count label
-            wordCountLabel.setText("Word Count: " + wordCount);
-
+           
             // Sort words alphabetically
             words.addAll(uniqueWords);
             Collections.sort(words);
@@ -143,18 +146,36 @@ public class WordFrequencyAnalyzer extends Application {
             // Sort word frequencies based on frequency in descending order
             wordFrequencyList.addAll(wordFrequencyMap.entrySet());
             wordFrequencyList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-    
+            
+            return wordFrequencyMap;
+        });
+
+        try {
+            Map<String, Integer> wordFrequencyMap = future.get();
+
+            // Update word count label
+            int wordCount = wordFrequencyMap.values().stream().mapToInt(Integer::intValue).sum();
+            wordCountLabel.setText("Word Count: " + wordCount);
+
             // Clear wordList
             wordList.clear();
-    
+
             // Add sorted word frequencies to wordList
-            for (Map.Entry<String, Integer> entry : wordFrequencyList) {
+            for (Map.Entry<String, Integer> entry : wordFrequencyMap.entrySet().stream()
+                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                    .toList()) {
                 wordList.add(entry.getKey() + " : " + entry.getValue());
             }
-    
+
             // Set the items in the ListView
             wordListView.setItems(wordList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            executorService.shutdown();
         }
+    }
+           
 
         private void startTimer() {
             if (!isTimerRunning) {
