@@ -8,6 +8,7 @@
 
 /*
  * To use this GUI, type/load in text and then click "analyze"
+ * "Start" and "Stop" buttons are used to calculate the user's WPM
  */
 
 import javafx.application.Application;
