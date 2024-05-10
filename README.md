@@ -19,8 +19,7 @@ The software is open source and free to use, which makes it more customizable an
 
 I intend to add more future features such as total word count and pdf processing (and also make the GUI less ugly lol).
 
-
-
+[Youtube Video Link](https://youtu.be/VZfuwSwEw5M?si=G9b85w-K8eys4eWn)
 ## Current UML Design
 
 ![UML](UML.png)
